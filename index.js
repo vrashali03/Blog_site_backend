@@ -9,7 +9,7 @@ const app = express();
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "http://localhost:3000, https://gregarious-sherbet-652f35.netlify.app"
+    "https://gregarious-sherbet-652f35.netlify.app"
   );
   res.header(
     "Access-Control-Allow-Headers",
@@ -20,15 +20,15 @@ app.use((req, res, next) => {
 
 const routes = require("./controller/controller.routes");
 
-app.use(
-  cors({
-    credentials: true,
-    origin: [
-      "http://localhost:3000",
-      "https://gregarious-sherbet-652f35.netlify.app",
-    ],
-  })
-);
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: [
+//       "http://localhost:3000",
+//       "https://gregarious-sherbet-652f35.netlify.app",
+//     ],
+//   })
+// );
 app.use(express.json());
 app.use(cookieParser());
 
