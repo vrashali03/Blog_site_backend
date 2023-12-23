@@ -8,7 +8,9 @@ async function verifyUser(req, res) {
     const info = await jwt.verify(token, secret);
     res.send(info);
   } catch (error) {
-    return res.status(401).send("Unauthorized");
+    return res.status(401).send({
+      Error: "Unauthorized",
+    });
   }
 }
 
