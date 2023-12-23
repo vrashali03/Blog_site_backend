@@ -6,6 +6,18 @@ const { dbConnection } = require("./config/mongo.config");
 
 const app = express();
 
+app.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "http://localhost:3000, https://gregarious-sherbet-652f35.netlify.app"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 const routes = require("./controller/controller.routes");
 
 app.use(
