@@ -8,7 +8,12 @@ const app = express();
 
 const routes = require("./controller/controller.routes");
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(
+  cors({
+    credentials: true,
+    origin: "https://gregarious-sherbet-652f35.netlify.app/",
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 
