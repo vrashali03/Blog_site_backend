@@ -11,7 +11,7 @@ const routes = require("./controller/controller.routes");
 app.use(
   cors({
     credentials: true,
-    origin: "https://gregarious-sherbet-652f35.netlify.app/",
+    origin: "https://gregarious-sherbet-652f35.netlify.app",
   })
 );
 app.use(express.json());
