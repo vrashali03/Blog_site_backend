@@ -9,7 +9,7 @@ const app = express();
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://gregarious-sherbet-652f35.netlify.app"
+    "https://gregarious-sherbet-652f35.netlify.app/, http://localhost:3000/"
   );
   res.header(
     "Access-Control-Allow-Headers",
