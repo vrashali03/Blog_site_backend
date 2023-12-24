@@ -5,7 +5,7 @@ const app = express();
 
 const route = express.Router();
 
-const destination = "/opt/render/project/src/";
+const destination = path.join(__dirname, "../uploads/");
 const upload = multer({ dest: destination });
 
 //All the imports are here
