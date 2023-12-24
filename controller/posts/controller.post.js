@@ -12,7 +12,6 @@ async function createPost(req, res) {
   const pathParts = path.split("\\");
   const mainPath =
     pathParts[pathParts.length - 2] + "/" + pathParts[pathParts.length - 1];
-  console.log(mainPath);
   const parts = originalname.split(".");
   const ext = parts[parts.length - 1];
   const newPath = mainPath + "." + ext;
