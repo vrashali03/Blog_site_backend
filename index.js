@@ -5,6 +5,7 @@ const cors = require("cors");
 const { dbConnection } = require("./config/mongo.config");
 
 const app = express();
+require("dotenv").config();
 
 const routes = require("./controller/controller.routes");
 
@@ -12,7 +13,7 @@ app.use(
   cors({
     credentials: true,
     origin: [
-      "http://localhost:3000",
+      "http://localhost:5000",
       "https://gregarious-sherbet-652f35.netlify.app",
     ],
   })
@@ -26,7 +27,7 @@ app.use("/", routes);
 
 async function serverConnection() {
   await dbConnection();
-  app.listen(4000, () => {
+  app.listen(process.env.PORT, () => {
     console.log(`Listening on port ${process.env.PORT}`);
   });
 }

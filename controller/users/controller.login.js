@@ -39,22 +39,31 @@ async function userLogin(req, res) {
     });
   }
   const userCheck = await User.findOne({ username: username });
-  const passCheck = bcrypt.compareSync(password, userCheck.password);
 
   try {
-    if (passCheck) {
-      //logged in
-      jwt.sign({ username, id: userCheck._id }, secret, {}, (error, token) => {
-        if (error) {
-          throw error;
-        }
-        res.status(200).cookie("token", token).send({
-          id: userCheck._id,
-          username,
-        });
-      });
+    if (userCheck !== null) {
+      const passCheck = bcrypt.compareSync(password, userCheck.password);
+      if (passCheck) {
+        //logged in
+        jwt.sign(
+          { username, id: userCheck._id },
+          secret,
+          {},
+          (error, token) => {
+            if (error) {
+              throw error;
+            }
+            res.status(200).cookie("token", token).send({
+              id: userCheck._id,
+              username,
+            });
+          }
+        );
+      } else {
+        res.status(404).send("Wrong Credentials");
+      }
     } else {
-      res.status(400).send("Wrong Credentials");
+      res.status(404).send("Wrong Credentials");
     }
   } catch (error) {
     return res.status(400).send(error);
