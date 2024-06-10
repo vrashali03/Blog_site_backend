@@ -14,7 +14,7 @@ app.use(
     credentials: true,
     origin: [
       "http://localhost:5000",
-      "https://gregarious-sherbet-652f35.netlify.app",
+      "https://blog-site-backend-rrij.onrender.com",
     ],
   })
 );
