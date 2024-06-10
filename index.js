@@ -12,10 +12,7 @@ const routes = require("./controller/controller.routes");
 app.use(
   cors({
     credentials: true,
-    origin: [
-      "http://localhost:5000",
-      "https://blog-site-backend-rrij.onrender.com",
-    ],
+    origin: ["http://localhost:5000", process.env.FRONTEND_WEBSITE],
   })
 );
 app.use(express.json());
